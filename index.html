@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Model: Igbaras Eco-Glamping</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- 
+    PALETTE: "Tropical Adventure"
+    Primary Teal: #00695C
+    Accent Orange: #FF6D00
+    Sunny Yellow: #FFD600
+    Background: #F0F4F8
+    Card Surface: #FFFFFF
+    Text Dark: #1F2937
+    
+    PLAN NARRATIVE:
+    1. Hero: Title and Micro-business Context.
+    2. Snapshot: Key metrics (Capital, ROI) as Big Numbers.
+    3. Investment Analysis: Doughnut chart of Cost Drivers.
+    4. Financial Projection: Line chart showing 24-month ROI path.
+    5. Operations: HTML Timeline for setup.
+    6. SWOT: Grid layout for strategic analysis.
+    7. Conclusion: Final call to action.
+    -->
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F0F4F8;
+            color: #1F2937;
+        }
+        .gradient-header {
+            background: linear-gradient(135deg, #00695C 0%, #004D40 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s;
+        }
+        .card-shadow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        /* Chart Container Styling - Responsive Boundaries */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px; /* Max width for readability */
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px; /* Base height */
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        /* Custom timeline line */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            width: 4px;
+            background: #E5E7EB;
+            z-index: 0;
+        }
+        .timeline-dot {
+            z-index: 10;
+        }
+    </style>
+    <!-- NO SVG used in this document. NO MERMAID JS used. -->
+</head>
+<body class="antialiased">
+
+    <!-- Header Section -->
+    <header class="gradient-header text-white py-12 px-4 shadow-lg mb-8">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 tracking-tight">Micro-Business Blueprint</h1>
+            <p class="text-xl md:text-2xl text-yellow-300 font-light mb-2">Eco-Glamping Site • Igbaras, Iloilo</p>
+            <p class="text-sm opacity-80 max-w-2xl mx-auto mt-4">A strategic visualization of the capital requirements, return on investment, and operational roadmap for establishing a sustainable tourism accommodation business in the mountains of Iloilo.</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 pb-16 space-y-12">
+
+        <!-- SECTION 1: Executive Summary (Inform) -->
+        <section>
+            <div class="mb-6 border-l-4 border-orange-500 pl-4">
+                <h2 class="text-3xl font-bold text-teal-800">Executive Summary</h2>
+                <p class="text-gray-600 mt-2">The core metrics defining the viability of this micro-business venture.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Stat Card 1 -->
+                <div class="bg-white rounded-xl p-6 card-shadow text-center border-t-4 border-teal-600">
+                    <h3 class="text-gray-500 font-semibold uppercase text-sm tracking-wider">Estimated Capital</h3>
+                    <div class="text-4xl font-bold text-gray-800 mt-2">₱500K - 1M</div>
+                    <p class="text-teal-600 text-sm mt-2 font-medium">Initial Investment Range</p>
+                </div>
+                <!-- Stat Card 2 -->
+                <div class="bg-white rounded-xl p-6 card-shadow text-center border-t-4 border-orange-500">
+                    <h3 class="text-gray-500 font-semibold uppercase text-sm tracking-wider">ROI Horizon</h3>
+                    <div class="text-4xl font-bold text-gray-800 mt-2">18 - 24</div>
+                    <p class="text-orange-500 text-sm mt-2 font-medium">Months to Break Even</p>
+                </div>
+                <!-- Stat Card 3 -->
+                <div class="bg-white rounded-xl p-6 card-shadow text-center border-t-4 border-yellow-500">
+                    <h3 class="text-gray-500 font-semibold uppercase text-sm tracking-wider">Target Market</h3>
+                    <div class="text-4xl font-bold text-gray-800 mt-2">Eco-Tourists</div>
+                    <p class="text-yellow-600 text-sm mt-2 font-medium">Locals & Backpackers</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Cost Structure (Compare) -->
+        <section>
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-teal-800">Capital Allocation Strategy</h2>
+                <p class="text-gray-600 mt-2 max-w-3xl">Understanding where the money goes is crucial for budget management. The chart below breaks down the estimated PHP 750,000 (mid-range) capital into key cost drivers specific to the Igbaras terrain.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white rounded-xl p-8 card-shadow">
+                <!-- Visualization -->
+                <div class="w-full">
+                    <div class="chart-container">
+                        <canvas id="costChart"></canvas>
+                    </div>
+                </div>
+                <!-- Context/Legend -->
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold text-gray-800">Key Cost Drivers Explained</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-2">⛺</span>
+                            <div>
+                                <span class="font-bold text-gray-800">Premium Tents & Interiors:</span> High-quality canvas bell tents capable of withstanding mountain winds, plus comfortable bedding.
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-2">🪵</span>
+                            <div>
+                                <span class="font-bold text-gray-800">Platforms & Decking:</span> Essential for uneven terrain in Igbaras. Raises guests off the ground for warmth and bugs.
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-2">☀️</span>
+                            <div>
+                                <span class="font-bold text-gray-800">Solar & Utilities:</span> Off-grid power solutions are often necessary and constitute a significant upfront cost.
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-2">🚿</span>
+                            <div>
+                                <span class="font-bold text-gray-800">Sanitation & Water:</span> Eco-septic systems and water transport/filtration.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Financial Trajectory (Change) -->
+        <section>
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-teal-800">ROI & Cash Flow Projection</h2>
+                <p class="text-gray-600 mt-2">A realistic look at the path to profitability. This projection assumes a 40% average occupancy rate (higher on weekends, lower on weekdays) and a gradual increase in popularity.</p>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 card-shadow">
+                <div class="chart-container" style="max-width: 100%;">
+                    <canvas id="roiChart"></canvas>
+                </div>
+                <div class="mt-6 bg-teal-50 p-4 rounded-lg border border-teal-100">
+                    <p class="text-sm text-teal-800"><strong>Analysis:</strong> The "Valley of Death" (negative cash flow) persists for the first 12 months as operational costs stabilize and marketing kicks in. The crossover point (Break-even) is projected between months 18 and 20.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Operations Roadmap (Organize) -->
+        <section>
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-teal-800">Setup Roadmap</h2>
+                <p class="text-gray-600 mt-2">The critical steps to launch, from breaking ground to grand opening.</p>
+            </div>
+
+            <div class="relative timeline-line pl-2 md:pl-4 space-y-8">
+                <!-- Step 1 -->
+                <div class="relative pl-10 md:pl-16">
+                    <div class="absolute left-2 top-0 bg-teal-600 text-white font-bold rounded-full w-10 h-10 flex items-center justify-center timeline-dot shadow-lg border-4 border-white">1</div>
+                    <div class="bg-white p-6 rounded-lg card-shadow">
+                        <h3 class="font-bold text-xl text-teal-700">Site Selection & Permitting</h3>
+                        <p class="text-sm text-gray-500 font-mono mb-2">Month 1-2</p>
+                        <p class="text-gray-600">Secure land lease or ownership in Igbaras. Begin DENR compliance checks and Barangay business permits. Assess water source availability.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative pl-10 md:pl-16">
+                    <div class="absolute left-2 top-0 bg-orange-500 text-white font-bold rounded-full w-10 h-10 flex items-center justify-center timeline-dot shadow-lg border-4 border-white">2</div>
+                    <div class="bg-white p-6 rounded-lg card-shadow">
+                        <h3 class="font-bold text-xl text-orange-600">Infrastructure & Hardscaping</h3>
+                        <p class="text-sm text-gray-500 font-mono mb-2">Month 3-4</p>
+                        <p class="text-gray-600">Construction of wooden platforms (decks), common area pavilion, and installation of septic tanks/toilets. Installation of solar panels.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative pl-10 md:pl-16">
+                    <div class="absolute left-2 top-0 bg-yellow-500 text-white font-bold rounded-full w-10 h-10 flex items-center justify-center timeline-dot shadow-lg border-4 border-white">3</div>
+                    <div class="bg-white p-6 rounded-lg card-shadow">
+                        <h3 class="font-bold text-xl text-yellow-600">Soft Launch & Marketing</h3>
+                        <p class="text-sm text-gray-500 font-mono mb-2">Month 5</p>
+                        <p class="text-gray-600">Setup tents and interiors. Invite micro-influencers for free stays. Create social media pages (FB/IG/TikTok). List on AirBnB.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: Strategic Analysis (Relationships/Grid) -->
+        <section>
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-teal-800">Igbaras Context: SWOT Analysis</h2>
+                <p class="text-gray-600 mt-2">Strategic factors specific to the Igbaras, Iloilo location.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Strengths -->
+                <div class="bg-teal-50 p-6 rounded-xl border-l-8 border-teal-500 card-shadow">
+                    <h3 class="text-xl font-bold text-teal-800 mb-3 flex items-center"><span class="text-2xl mr-2">💪</span> Strengths</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                        <li>Natural scenic beauty (mountains, waterfalls like Nadsadjan).</li>
+                        <li>Cooler climate compared to Iloilo City.</li>
+                        <li>Growing interest in local eco-tourism.</li>
+                    </ul>
+                </div>
+
+                <!-- Weaknesses -->
+                <div class="bg-orange-50 p-6 rounded-xl border-l-8 border-orange-500 card-shadow">
+                    <h3 class="text-xl font-bold text-orange-800 mb-3 flex items-center"><span class="text-2xl mr-2">📉</span> Weaknesses</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                        <li>Accessibility issues (rough roads in remote areas).</li>
+                        <li>Limited cellular/internet signal for digital nomads.</li>
+                        <li>Dependency on seasonality (rainy season challenges).</li>
+                    </ul>
+                </div>
+
+                <!-- Opportunities -->
+                <div class="bg-blue-50 p-6 rounded-xl border-l-8 border-blue-500 card-shadow">
+                    <h3 class="text-xl font-bold text-blue-800 mb-3 flex items-center"><span class="text-2xl mr-2">🚀</span> Opportunities</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                        <li>Partnerships with local trekking guides (Mt. Napulak).</li>
+                        <li>Farm-to-table dining experiences using local produce.</li>
+                        <li>Team building packages for Iloilo City corporate clients.</li>
+                    </ul>
+                </div>
+
+                <!-- Threats -->
+                <div class="bg-red-50 p-6 rounded-xl border-l-8 border-red-500 card-shadow">
+                    <h3 class="text-xl font-bold text-red-800 mb-3 flex items-center"><span class="text-2xl mr-2">⚠️</span> Threats</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                        <li>Typhoons and landslides.</li>
+                        <li>Oversaturation of new glamping sites.</li>
+                        <li>Regulatory changes in protected areas.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SECTION 6: Target Market Profile (Relationships) -->
+        <section>
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-teal-800">Ideal Guest Profile</h2>
+                <p class="text-gray-600 mt-2">Understanding who visits Igbaras allows for targeted marketing. This radar chart visualizes the priorities of the target demographic.</p>
+            </div>
+            
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white rounded-xl p-8 card-shadow">
+                <!-- Visualization -->
+                <div class="w-full">
+                    <div class="chart-container">
+                        <canvas id="marketChart"></canvas>
+                    </div>
+                </div>
+                <!-- Context -->
+                 <div class="space-y-4">
+                    <h3 class="text-xl font-bold text-gray-800">The "Weekend Warrior"</h3>
+                    <p class="text-gray-600">The primary customer is a young professional from Iloilo City seeking a quick escape.</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-3 rounded border border-gray-200">
+                            <span class="block text-xs text-gray-500 uppercase font-bold">Priority</span>
+                            <span class="block font-semibold text-teal-700">Instagrammability</span>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded border border-gray-200">
+                            <span class="block text-xs text-gray-500 uppercase font-bold">Sensitivity</span>
+                            <span class="block font-semibold text-orange-600">Price/Value</span>
+                        </div>
+                         <div class="bg-gray-50 p-3 rounded border border-gray-200">
+                            <span class="block text-xs text-gray-500 uppercase font-bold">Interest</span>
+                            <span class="block font-semibold text-teal-700">Nature/Hiking</span>
+                        </div>
+                         <div class="bg-gray-50 p-3 rounded border border-gray-200">
+                            <span class="block text-xs text-gray-500 uppercase font-bold">Need</span>
+                            <span class="block font-semibold text-gray-700">Sanitation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 text-center">
+        <p class="text-gray-400">© 2023 Igbaras Eco-Tourism Initiative. Generated for Educational Purposes.</p>
+        <p class="text-xs text-gray-600 mt-2">Data based on simulated market estimates for Region VI.</p>
+    </footer>
+
+    <!-- SCRIPT SECTION -->
+    <script>
+        // --- 1. UTILITY: Label Wrapping Logic for Chart.js ---
+        function formatLabel(str, maxwidth) {
+            if (typeof str !== 'string') return str;
+            let sections = [];
+            let words = str.split(" ");
+            let temp = "";
+            words.forEach(function(item, index) {
+                if (temp.length > 0) {
+                    let concat = temp + ' ' + item;
+                    if (concat.length > maxwidth) {
+                        sections.push(temp);
+                        temp = "";
+                    } else {
+                        if (index === (words.length - 1)) {
+                            sections.push(concat);
+                            return;
+                        } else {
+                            temp = concat;
+                            return;
+                        }
+                    }
+                }
+                if (index === (words.length - 1)) {
+                    sections.push(item);
+                    return;
+                }
+                if (item.length < maxwidth) {
+                    temp = item;
+                } else {
+                    sections.push(item);
+                }
+            });
+            return sections;
+        }
+
+        // --- 2. CHART CONFIGURATIONS ---
+        
+        // Colors
+        const colorTeal = '#00695C';
+        const colorTealLight = '#4DB6AC';
+        const colorOrange = '#FF6D00';
+        const colorYellow = '#FFD600';
+        const colorGray = '#CFD8DC';
+
+        // Common Tooltip Configuration
+        const commonTooltip = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        // CHART 1: Cost Structure (Doughnut)
+        const ctxCost = document.getElementById('costChart').getContext('2d');
+        const labelsCost = [
+            "Tents & Furnishings", 
+            "Platforms & Construction", 
+            "Solar Power & Utilities", 
+            "Sanitation & Water Systems", 
+            "Permits & Marketing"
+        ];
+        // Process labels
+        const processedLabelsCost = labelsCost.map(l => formatLabel(l, 16));
+
+        new Chart(ctxCost, {
+            type: 'doughnut',
+            data: {
+                labels: processedLabelsCost,
+                datasets: [{
+                    data: [30, 25, 20, 15, 10], // Percentage based on 750k avg
+                    backgroundColor: [
+                        colorOrange, // Tents (High Impact)
+                        colorTeal,   // Platforms
+                        colorYellow, // Solar
+                        '#546E7A',   // Sanitation
+                        '#B0BEC5'    // Admin
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#ffffff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            font: { size: 12 },
+                            boxWidth: 15
+                        }
+                    },
+                    tooltip: commonTooltip,
+                    title: {
+                        display: true,
+                        text: 'Capital Allocation (%)',
+                        font: { size: 16 }
+                    }
+                }
+            }
+        });
+
+        // CHART 2: ROI Horizon (Line)
+        const ctxRoi = document.getElementById('roiChart').getContext('2d');
+        const months = Array.from({length: 25}, (_, i) => i); // 0 to 24
+        // Simulated cumulative cash flow: Starts at -750k, slowly recovers
+        const cashFlow = months.map(m => {
+            let startupCost = -750000;
+            if (m === 0) return startupCost;
+            // Monthly profit assumes varying occupancy growth
+            // Month 1-6: Low profit (10k/mo)
+            // Month 7-12: Medium profit (30k/mo)
+            // Month 13+: High profit (50k/mo)
+            let profit = 0;
+            for(let i=1; i<=m; i++) {
+                if(i <= 6) profit += 15000;
+                else if(i <= 12) profit += 35000;
+                else profit += 55000;
+            }
+            return startupCost + profit;
+        });
+
+        new Chart(ctxRoi, {
+            type: 'line',
+            data: {
+                labels: months,
+                datasets: [{
+                    label: 'Cumulative Cash Flow (PHP)',
+                    data: cashFlow,
+                    borderColor: colorTeal,
+                    backgroundColor: 'rgba(0, 105, 92, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 2
+                },
+                {
+                    label: 'Break Even Line',
+                    data: Array(25).fill(0),
+                    borderColor: colorOrange,
+                    borderDash: [5, 5],
+                    borderWidth: 2,
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        title: { display: true, text: 'Months of Operation' }
+                    },
+                    y: {
+                        title: { display: true, text: 'Net Position (PHP)' },
+                        ticks: {
+                            callback: function(value) {
+                                return '₱' + value / 1000 + 'k';
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: commonTooltip,
+                    title: {
+                        display: true,
+                        text: 'Investment Recovery Timeline',
+                        font: { size: 16 }
+                    }
+                }
+            }
+        });
+
+        // CHART 3: Guest Profile (Radar)
+        const ctxMarket = document.getElementById('marketChart').getContext('2d');
+        const labelsMarket = [
+            "Comfort Seeking",
+            "Adventure / Hiking",
+            "Price Sensitivity",
+            "Digital Connectivity",
+            "Social Media Appeal"
+        ];
+        const processedLabelsMarket = labelsMarket.map(l => formatLabel(l, 14));
+
+        new Chart(ctxMarket, {
+            type: 'radar',
+            data: {
+                labels: processedLabelsMarket,
+                datasets: [{
+                    label: 'Target Guest Priorities',
+                    data: [70, 85, 60, 40, 95], // High desire for aesthetic & nature, low need for internet
+                    fill: true,
+                    backgroundColor: 'rgba(255, 109, 0, 0.2)',
+                    borderColor: colorOrange,
+                    pointBackgroundColor: colorOrange,
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: colorOrange
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { display: false },
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                },
+                plugins: {
+                    tooltip: commonTooltip,
+                    legend: { display: false }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
